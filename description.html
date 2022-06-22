@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="img/DS.ico" type="image/x-icon">
+    <link rel="stylesheet" href="libs/modal/modal.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/ApercuPro-Bold.woff2">
+    <link rel="stylesheet" href="fonts/HistoryPro-Two.ttf">
+    <link rel="stylesheet" href="fonts/ApercuPro-Regular.woff2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+     <!-- Шапка -->
+     <header>
+        <!-- Бургер -->
+        <div class="menu back menu--3">
+            <label>
+              <input type="checkbox">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="30" />
+                <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55" />
+                <path class="line--2" d="M0 50h80" />
+                <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45" />
+              </svg>
+            </label>
+        </div>
+        <!-- Логотип -->
+        <div class="logo">
+            <span>D</span><span>ima</span><span>S</span><span>port</span>
+        </div>
+        <!-- Навигация -->
+        <nav class="navigation">
+            <ul class="header_container">
+                <li class="header_links"><a href="index.html" class="header_link">Главная</a></li>
+                <li class="header_links"><a href="protein.html" class="header_link">Протеины</a></li>
+                <li class="header_links"><a href="gainer.html" class="header_link">Гейниры</a></li>
+                <li class="header_links"><a href="vitamin.html" class="header_link">Витамины</a></li>
+                <li class="header_links"><a href="creatine.html" class="header_link">Креатин</a></li>            
+            </ul>
+            <a href="#" class="header_login">SIGN IN</a>   <!-- Авторизация в бургере -->
+        </nav>
+        <!-- Кнопка Поиск -->
+        <div class="wrap ">
+            <form><input type="text" class="search" id="inpit" placeholder="Поиск" autocomplete="off"></form>
+            <a href="#" class="header_search"></a>
+        </div>
+        <!-- Функциональная панель -->
+        <div class="header_functional">           
+            <a href="favorite.html" class="header_icon favorite">
+                <span class="notify"></span></a>
+            <a href="#" class="header_icon"></a>
+            <a href="#" class="header_icon"></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="descript_flex">
+            <div class="descript_flex_box">
+                <div class="descript_imgs"></div>    
+                <div class="chapter_img"><img src="img/creatine.jpg" alt="creatine"></div>
+            </div>
+            
+            <div class="descript_right_chapter">
+                <h3 class="product_title">Almerna Negligé mit Chantilly-Spitze</h3>
+                <span class="product_price">€69,00</span>
+
+                <div class="descript_right">
+                    <button class="Buy" data-graph-path="modal" data-graph-animation="fadeInUp">Add to bag by
+                        $56.45</button>
+                    <button class="favorite_btn" data-id="1"> <svg width="21" height="19" viewBox="0 0 21 19"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z">
+                            </path>
+                        </svg></button>
+                </div>
+
+                <span class="descript_span">Доставка 1-2 дня</span>
+
+                <ul class="characteristics__list">
+                    <li class="characteristics__item">
+                        <button class="characteristics__title ">Описание</button>
+                        <div class="characteristics__description ">
+                            <div class="characteristics__list-description">информация отсутствует</div>
+                        </div>
+                    </li>
+                    <li class="characteristics__item">
+                        <button class="characteristics__title">Состав</button>
+                        <div class="characteristics__description ">
+                            <div class="characteristics__list-description">информация отсутствует</div>
+                        </div>
+                    </li>
+                    <li class="characteristics__item">
+                        <button class="characteristics__title">Способ применения</button>
+                        <div class="characteristics__description ">
+                            <div class="characteristics__list-description">информация отсутствует</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="card_debut"><img src="img/card/card1.png" alt=""><img src="img/card/card2.png" alt=""><img
+                        src="img/card/card3.png" alt=""><img src="img/card/card4.png" alt=""><img
+                        src="img/card/card5.png" alt=""></div>
+            </div>
+        </div>
+
+        <h3 class="title_products ds">Также могут понравиться</h3>
+        <div class="products_flex_itemTwo"></div>
+
+    </div>
+    <!-- Модальное окно -->
+    <div class="modal">
+        <div class="modal__container order-modal" role="dialog" aria-modal="true" data-graph-target="modal">
+            <div class="modal-content order-modal__content">
+                <div class="order-modal__top">
+                    <h2 class="order-modal__title">Оформление заказа</h2>
+                    <span class="order-modal__number">Заказ № 3456 67</span>
+                </div>
+                <div class="order-modal__info">
+
+                </div>
+                <form action="mail.php" method="post" class="order-modal__form order">
+                    <input type="hidden" name="theme" value="Обратный звонок">
+                    <input type="hidden" name="admin_email[]" value="strugov7@mail.ru">
+                    <input type="hidden" name="form_subject" value="Заявка с сайта Сайт">
+                    <label class="order__label">
+                        <span class="order__text">Ваше имя</span>
+                        <input type="text" name="Имя" class="order__input">
+                    </label>
+                    <label class="order__label">
+                        <span class="order__text">Номер телефона</span>
+                        <input type="tel" name="Телефон" class="order__input" placeholder="+7 (___)___-__-__">
+                    </label>
+                    <label class="order__label">
+                        <span class="order__text">Почта</span>
+                        <input type="email" name="Email" class="order__input" placeholder="post@gmail.com">
+                    </label>
+                    <button class="order__btn btn">Оформить заказ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer  -->
+    <footer>
+        <div class="f_container">
+            <div class="footer_top">
+                <div class="logo">
+                    <span>D</span><span>ima</span><span>S</span><span>port</span>
+                </div>
+                <div class="footer_contents">
+                    <ul class="footer_list" data-collapse="#wedo1">
+                        <li class="footer_title">Main</li>
+                        <div class="accordion" id="wedo1">
+                            <li class="footer_type">Shop</li>
+                            <li class="footer_type">Underwear</li>
+                            <li class="footer_type">Bras</li>
+                            <li class="footer_type">Fitting Room</li>
+                    </ul>
+                    <ul class="footer_list" data-collapse="#wedo2">
+                        <li class="footer_title">Information</li>
+                        <div class="accordion" id="wedo2">
+                            <li class="footer_type">Shop</li>
+                            <li class="footer_type">Underwear</li>
+                            <li class="footer_type">Bras</li>
+                            <li class="footer_type">Fitting Room</li>
+                    </ul>
+                    <ul class="footer_list" data-collapse="#wedo3">
+                        <li class="footer_title">Company</li>
+                        <div class="accordion" id="wedo3">
+                            <li class="footer_type">Shop</li>
+                            <li class="footer_type">Underwear</li>
+                            <li class="footer_type">Bras</li>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="footer_search">
+                    <span class="footer_title">Join Our Mailing List</span>
+                    <form action="">
+                        <input class="footer_input" placeholder="E-mail" type="">
+                    </form>
+                    <p class="footer_politicy">By signing up you agree with our <span>Terms & Conditions</span> and
+                        <span>Privacy Policy.</span> To opt out, click Unsubscribe in our emails.</p>
+                </div>
+            </div>
+
+        </div>
+        <hr class="footer_line">
+        <div class="f_container">
+            <div class="footer_bottom">
+                <p class="footer_text">©2022. DimaSport</p>
+                <div class="footer_tight_boot">
+                    <p class="footer_text">Terms & Condintions</p>
+                    <p class="footer_text">Privacy Policy</p>
+                    <div class="footer_social">
+                        <img src="img/icons/Inst.svg" alt="inst" class="inst">
+                        <img src="img/icons/facebook.svg" alt="facebook" class="face">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="libs/modal/modal.js" defer></script>
+    <script src="js/pro.js" defer></script>
+</body>
+
+</html>

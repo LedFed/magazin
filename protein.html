@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protein</title>
+    <link rel="icon" href="img/DS.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/ApercuPro-Bold.woff2">
+    <link rel="stylesheet" href="fonts/HistoryPro-Two.ttf">
+    <link rel="stylesheet" href="fonts/ApercuPro-Regular.woff2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Бургер -->
+        <div class="menu back menu--3">
+            <label>
+              <input type="checkbox">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="30" />
+                <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55" />
+                <path class="line--2" d="M0 50h80" />
+                <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45" />
+              </svg>
+            </label>
+        </div>
+        <!-- Логотип -->
+        <div class="logo">
+            <span>D</span><span>ima</span><span>S</span><span>port</span>
+        </div>
+        <!-- Навигация -->
+        <nav class="navigation">
+            <ul class="header_container">
+                <li class="header_links"><a href="index.html" class="header_link">Главная</a></li>
+                <li class="header_links"><a href="protein.html" class="header_link">Протеины</a></li>
+                <li class="header_links"><a href="gainer.html" class="header_link">Гейниры</a></li>
+                <li class="header_links"><a href="vitamin.html" class="header_link">Витамины</a></li>
+                <li class="header_links"><a href="creatine.html" class="header_link">Креатин</a></li>            
+            </ul>
+            <a href="#" class="header_login">SIGN IN</a>   <!-- Авторизация в бургере -->
+        </nav>
+        <!-- Кнопка Поиск -->
+        <div class="wrap ">
+            <form><input type="text" class="search"  id="inpit" placeholder="Поиск" autocomplete="off"></form>
+            <a href="#" class="header_search"></a>
+        </div>
+        <!-- Функциональная панель -->
+        <div class="header_functional">           
+            <a href="favorite.html" class="header_icon favorite">
+                <span class="notify"></span></a>
+            <a href="#" class="header_icon"></a>
+            <a href="#" class="header_icon"></a>
+        </div>
+    </header>
+<!-- Карточки товаров -->
+    <div class="container">
+        <main class="products_grid">
+            <div class="products_grid_item">
+                <!-- <aricle class="product" data-id="1">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="protein">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein Mass Bost 1kg</h3>
+                        <span class="product_price">30,00€</span>
+                    </div>
+                </aricle>
+                <aricle class="product" data-id="2">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="protein">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein Mass Bost 2kg</h3>
+                        <span class="product_price">49,00€</span>
+                    </div>
+                </aricle>
+                <aricle class="product" data-id="3">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="protein">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein mass bost 3kg</h3>
+                        <span class="product_price">69,00€</span>
+                    </div>
+                </aricle>   
+                <aricle class="product" data-id="4">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="protein">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein vasab</h3>
+                        <span class="product_price sale">21,00€</span>
+                    </div>
+                </aricle>
+                <aricle class="product"  data-id="5">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="creatine">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein mass bost 3kg</h3>
+                        <span class="product_price">69,00€</span>
+                    </div>
+                </aricle>
+                <aricle class="product"  data-id="6">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="creatine">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein mass bost 3kg</h3>
+                        <span class="product_price">69,00€</span>
+                    </div>
+                </aricle>
+                <aricle class="product"  data-id="7">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="creatine">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein mass bost 3kg</h3>
+                        <span class="product_price">69,00€</span>
+                    </div>
+                </aricle>
+                <aricle class="product"  data-id="8">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="creatine">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein mass bost 3kg</h3>
+                        <span class="product_price">69,00€</span>
+                    </div>
+                </aricle>
+                <aricle class="product"  data-id="9">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="creatine">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein mass bost 3kg</h3>
+                        <span class="product_price">69,00€</span>
+                    </div>
+                </aricle>
+                <aricle class="product"  data-id="10">
+                    <div href="#" class="product_link">
+                        <div class="product_img">
+                            <img src="img/protein.jpeg" alt="creatine">
+                        </div>
+                        <button class="favorite_btn btn">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
+                                </svg>                                                     
+                        </button>
+                        <h3 class="product_title">Protein mass bost 3kg</h3>
+                        <span class="product_price">69,00€</span>
+                    </div>
+                </aricle> -->
+            </div>
+        </main>
+    </div>
+    <div class="cart-content">
+        <ul class="cart-content__list" >
+            <div class="suda clips" id="suda"></div>
+        </ul>
+    </div>
+<!-- Footer  -->
+    <footer>
+        <div class="f_container">
+            <div class="footer_top">
+                <div class="logo">
+                    <span>D</span><span>ima</span><span>S</span><span>port</span>
+                </div>
+                <div class="footer_contents">
+                    <ul class="footer_list" data-collapse="#wedo1">
+                        <li class="footer_title">Main</li>
+                        <div class="accordion" id="wedo1">
+                            <li class="footer_type">Shop</li>
+                            <li class="footer_type">Underwear</li>
+                            <li class="footer_type">Bras</li>
+                            <li class="footer_type">Fitting Room</li>
+                    </ul>
+                    <ul class="footer_list" data-collapse="#wedo2">
+                        <li class="footer_title">Information</li>
+                        <div class="accordion" id="wedo2">
+                            <li class="footer_type">Shop</li>
+                            <li class="footer_type">Underwear</li>
+                            <li class="footer_type">Bras</li>
+                            <li class="footer_type">Fitting Room</li>
+                    </ul>
+                    <ul class="footer_list" data-collapse="#wedo3">
+                        <li class="footer_title">Company</li>
+                        <div class="accordion" id="wedo3">
+                            <li class="footer_type">Shop</li>
+                            <li class="footer_type">Underwear</li>
+                            <li class="footer_type">Bras</li>
+                         </div>
+                    </ul>
+                </div>
+               
+                <div class="footer_search">
+                    <span class="footer_title">Join Our Mailing List</span>
+                    <form action="">
+                        <input class="footer_input" placeholder="E-mail" type="">
+                    </form>       
+                    <p class="footer_politicy">By signing up you agree with our <span>Terms & Conditions</span> and <span>Privacy Policy.</span> To opt out, click Unsubscribe in our emails.</p>
+                </div>
+            </div>          
+        </div>
+        <hr class="footer_line">
+        <div class="f_container">
+            <div class="footer_bottom">
+                <p class="footer_text">©2022. DimaSport</p>
+                <div class="footer_tight_boot">
+                    <p class="footer_text">Terms & Condintions</p>
+                    <p class="footer_text">Privacy Policy</p>
+                    <div class="footer_social">
+                        <img src="img/icons/Inst.svg" alt="inst" class="inst">
+                        <img src="img/icons/facebook.svg" alt="facebook" class="face">
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </footer>
+    <script src="js/pro.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/slick/slick.min.js"></script>
+    <script src="js/between.js"></script>
+    <script src="js/products.js"></script>   -->
+</body>
+</html>

@@ -1,0 +1,208 @@
+.f_container{
+    margin: 0 auto;
+    width: 85%;
+}
+.footer_line {
+    width: 100%;
+    border: 1px solid #F2F2F2;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+.footer_top {
+    display: flex;
+    margin-top: 50px;
+    align-items: flex-start;
+    justify-content: space-between;
+    .logo{
+        z-index: unset;
+        width: auto;
+        pointer-events: none;
+        border: none;
+        margin: auto;
+    }
+    .footer_log {
+        margin-right: 100px;
+    }
+    .footer_contents{
+        display: flex;  
+        flex: 1 1 0;
+        justify-content: space-evenly;
+    }
+    //Списки
+    .footer_list {
+        display: flex;
+        flex-direction: column;
+        row-gap:8px;
+    }
+    //Загаловок
+    .footer_title {
+        font-family: History;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 11px;
+        line-height: 160%;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #111113;
+        cursor: pointer;
+    }
+    //Загаловок для списка
+    .footer_type {
+        font-family: Apercu Pro;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        padding-bottom: 3px;
+        border-bottom: 1px solid transparent;
+        transition: .3s linear;
+        color: #666666;
+        &:hover{
+            border-bottom: 1px solid #111113;;
+        }
+    }
+    // Поиск
+    .footer_search {
+        display: flex;
+        flex-direction: column;
+        max-width: 360px;
+        flex: 1 1 0;   
+        form{
+            position: relative;
+            &::before{
+                content: url(/img/icons/arrow.svg);
+                position: absolute;
+                top: 50%;
+                right: 16px;
+                transform: translateY(-50%);   
+            }
+        }   
+    }
+    .footer_input{
+        height: 56px;
+        width: calc(100% - 14px);
+        margin: 16px 0;
+        border: 1px solid #E8E8E8;
+        padding-left: 16px;
+        &::placeholder{           
+            font-family: Apercu Pro;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 16px;
+            color: #B2B2B2;
+        }
+    }
+    .footer_politicy {
+        font-family: Apercu Pro;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 20px;
+        color: #666666;
+        span{
+            text-decoration: underline;
+            color: #A49E90;
+        }
+    }
+}
+.footer_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .footer_text {
+        font-family: Apercu Pro;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        white-space: nowrap;
+        color: #999999;
+    }
+    .footer_tight_boot{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        width: 360px;        
+    } 
+}
+@media (max-width:990px){
+    .f_container{
+        max-width: 95%;
+    }
+    .footer_top .footer_type{
+        font-size: 12px;
+    }
+}
+@media (max-width:770px){
+    .footer_top{
+        flex-direction: column;
+        row-gap: 20px;
+        .footer_contents{
+            flex-direction: column;
+            row-gap: 20px;
+            width: 100%;
+            .footer_list{         
+                &.active{
+                    padding-bottom: 12px;
+                    border-bottom: 1px solid transparent;    
+                    .footer_title{
+                        border-bottom: 1px solid transparent;
+                        &::after{
+                            transform: rotate(270deg);                       
+                        } 
+                    }                     
+                }  
+            }
+            .footer_title{
+                position: relative;
+                padding-bottom: 12px;
+                border-bottom: 1px solid #F2F2F2;                       
+                &::after{
+                    content: url(/img/icons/arrow_right.svg);
+                    display: block;
+                    transform: rotate(90deg);
+                    position: absolute;
+                    right: 0px;                 
+                    top: 0;
+                }              
+            } 
+            .accordion{
+                display: none;
+            }        
+        } 
+    }
+    .footer_bottom{
+        position: relative;
+        gap: 40px;      
+          .footer_social{
+            display: flex;
+            flex-direction: row;
+          }
+    }
+    .footer_line{
+        width: 90%;
+        margin: auto;
+        margin-top: 25px;
+        margin-bottom: 12px;
+    }
+}
+@media (max-width:500px){
+    .footer_bottom{  
+        gap: unset;
+        .footer_social{
+        position:absolute;
+        left:0;
+        top: 32px;
+        padding-bottom: 16px;
+        }
+        .footer_tight_boot{
+            justify-content: space-around;
+            gap: unset;
+        }
+    }
+}
+
+
