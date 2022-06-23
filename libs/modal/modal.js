@@ -50,6 +50,14 @@ class GraphModal {
 			}
 		}.bind(this));
 
+		document.addEventListener('backbutton',(e) => {
+			console.log(e);
+			if (e.target.closest('.modal__close')) {
+				this.close();
+				return;
+			}
+		});
+		
 		window.addEventListener('keydown', function(e) {
 			if (e.keyCode == 27) {
 				if (this.modalContainer.classList.contains('modal-open')) {

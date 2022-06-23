@@ -1347,7 +1347,7 @@ input::placeholder {
 }
 
 .cart_content {
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 .cart {
@@ -1722,6 +1722,7 @@ input::placeholder {
   .modal__container {
     width: calc(100% - 40px);
     margin: 0 !important;
+    padding: 20px;
   }
   .modal::before {
     height: auto !important;

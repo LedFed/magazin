@@ -5,12 +5,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let idil = [];
     getProducts();
 
+    $("[data-collapse]").on("click", function (event) {
+        event.preventDefault();
+        var $this = $(this),
+            blockid = $this.data('collapse');
+        $(this).toggleClass("active");
+        console.log(this);
+        $(blockid).slideToggle(500);
+    });
 
+    //Бургер
+    document.querySelector('.menu').addEventListener('change', (e) => {
+		event.preventDefault();
+		document.querySelector('nav').classList.toggle('table');	  
+	});
 
     // Аккардион описание и.т.д 
     const accoridon = () => {
         const characteristicsList = document.querySelector('.characteristics__list');
         const characteristicsItem = document.querySelectorAll('.characteristics__item');
+        const FooterL = document.querySelector('.footer_list')
+        const Faccordion = document.querySelectorAll('.accordion')
         // Функция принимает кнопку на которую нажал и описание 
         const open = (button, dropDown) => {
             CloseAllDrops();
@@ -82,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getProducts() {
         const response = await fetch('./db/descripton.json');
         const productsArray = await response.json();
-
+       
         switch (htmlPage) {
             case "protein.html": {
                 console.log('это протеин');
@@ -91,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             }
             case "index.html": {
-                // console.log(productsArray[1].length);
                 $(document).ready(function () { // Для слайдов, работает только после ответа от сервера
                     $("[data-slider]").slick({
                         isFinite: false,
@@ -107,19 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         arrows: false,
                         dots: true,
                     })
-                    $("[data-collapse]").on("click", function (event) {
-                        event.preventDefault();
-                        var $this = $(this),
-                            blockid = $this.data('collapse');
-                        $(this).toggleClass("active");
-                        console.log(this);
-                        $(blockid).slideToggle(500);
-                    });
+                 
                 });
                 threCart(productsArray);
                 proverka();
-                console.log('Это главная')
-
                 break;
             }
             case "description.html": {
@@ -164,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gridContainer.insertAdjacentHTML('beforeend', gridper);
         })
     }
-    // функция заполняет главные экран товарами
+    // функция заполняет главный экран товарами
     const threCart = (array) => {
         const productam = document.querySelectorAll('.products_flex_item')
         let d = 0;
@@ -193,13 +198,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //Проверяем наличие LS
+    //Проверяем наличие LS, помечаем выбранные товары при загрузке стр
+    // Возможность их туда добавить
     const proverka = () => {
 
         const btn = document.querySelectorAll('.favorite_btn');
         if (localStorage.getItem('favorite')) { //Проверяет существование LS
             favorites = JSON.parse(localStorage.getItem('favorite'));
-            console.log(favorites);
             btn.forEach(fbtn => { //Проходимся по всем кнопкам
                 let i = 0;
                 fbtn.hasAttribute('data-id') ?
@@ -242,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return favorites;
     }
 
-    // Функция принимает два значение: 
+    // !!!Функция принимает два значение: 
     // Массив и Значение, проходиться по циклу и возвращает путь до этого объекта
     const search = (arr, value) => {
         for (let key in arr) {
@@ -258,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
     //Берем данные из бд и грузим на страницу
     const descriptionCart = (array) => {
         // Заводим переменные внутри функции
@@ -272,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const orderModalList = document.querySelector('.order-modal__info');
         let a = +localStorage.getItem('curentId');
         Dr.querySelector('.favorite_btn').setAttribute('data-id', a);
-        // console.log();
 
         let dates = search(array, a); //Получаеться массив
 
@@ -376,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     favorites.push(add);
                     event.disabled = true;
                     localStorage.setItem("favorite", JSON.stringify(favorites));
-                    // nofy();
+                    nofy(favorites);
                 })
             })
         }
@@ -406,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
         proverka();
         accoridon();
         tabe();
-
+        nofy(favorites);
         // Модальное окно для одного товара
         const modal = new GraphModal({
             isOpen: (modal) => { //Открываем
@@ -420,10 +423,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Функция для CartF 
     const generateCartProduct = (img, title, price, id) => {
         return `			
             <aricle class="productik" data-id="${id}">
-                <div href="#" class="product_link">
+                <div  class="product_link">
                     <div class="product_img">
                         <img src="${img}" alt="creatine">
                     </div>
@@ -434,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <path d="M14.7749 0.999994C13.1219 0.999994 11.5355 1.76798 10.5 2.98159C9.46448 1.76798 7.87798 0.999994 6.22499 0.999994C3.29899 0.999994 1 3.29447 1 6.21469C1 9.79858 4.22999 12.7189 9.12248 17.1561L9.73284 17.7064C10.1681 18.0989 10.8307 18.0977 11.2644 17.7036L11.8775 17.1466C16.7699 12.7189 20 9.79858 20 6.21469C20 3.29447 17.701 0.999994 14.7749 0.999994Z" />
                                     </svg>                                                     
                             </button>
-                            <h3 class="product_title">${title}</h3>
+                            <a href="description.html" class="product_title">${title}</a>
                             <span class="product_price">${'€' + price}</span>
                         </div>
                         <div class="functional_panel">
@@ -453,19 +457,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		`;
     };
 
-
+    // Заполняет favorit выбранами товарами
     const cartF = (array) => {
         const here = document.querySelector('.suda');
         const BtnDis = document.querySelector('.Buy')
         BtnDis.classList.add('active');
         BtnDis.disabled = true;
         here.textContent = 'Тут пусто';
-        console.log(favorites);
         if (favorites.length) {
             here.textContent = '';
             favorites.forEach(e => {
                 let searchs = search(array, e);
-                console.log(searchs[0]);
                 here.insertAdjacentHTML('afterbegin',
                     generateCartProduct(searchs[0].img[1], searchs[0].name, searchs[0].price, searchs[0].id));
                 BtnDis.classList.remove('active');
@@ -487,7 +489,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 </li>
             `;
         };
-        console.log(favorites.length);
+
+        let FavId = document.querySelector('.product_title');
+        // Клик для перехода с favorit на descriptionHtml
+        FavId.addEventListener('click', () => {
+            FavId = +FavId.closest('.productik').getAttribute('data-id');
+            localStorage.setItem('curentId', FavId);
+        })
+
         // Модальное окно для нескольких товаров
         const modal = new GraphModal({
             isOpen: (modal) => {
@@ -496,44 +505,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 let MList = document.querySelector('.order-modal__list')
                 MList.innerHTML = '';
                 let BtnModal = document.querySelector('.order-modal__btn');
-                let fliger = 0 ;
+                let fliger = 0;
                 document.querySelector('.order-modal__summ span').textContent = total;
-              
-                BtnModal.addEventListener('click', ()=> {
-                   
-                    if(fliger == 0){
+
+                BtnModal.addEventListener('click', () => {
+
+                    if (fliger == 0) {
                         BtnModal.classList.add('open');
                         BtnModal.nextElementSibling.style.display = 'block';
                         fliger = 1;
-                    }else{
+                    } else {
                         BtnModal.classList.remove('open');
                         BtnModal.nextElementSibling.style.display = 'none';
                         fliger = 0;
                     }
-             
-              
+
                 })
 
                 Mlength.textContent = favorites.length + ' шт'
                 console.log(array);
                 for (let item in favorites) {
                     console.log(favorites[item]);
-                    let Mel =search(array, favorites[item]);
+                    let Mel = search(array, favorites[item]);
                     MList.insertAdjacentHTML('afterbegin',
-                    generateModalProduct(Mel[0].img[1], Mel[0].name, Mel[0].price, Mel[0].id));
+                        generateModalProduct(Mel[0].img[1], Mel[0].name, Mel[0].price, Mel[0].id));
                 }
             },
-            isClose: () => {  
+            isClose: () => {
             }
         });
 
     }
 
+    // Функция увеличивает или умешьшает кол-во + удаляет и сейвит в LS
     const Increment = (array) => {
         let BtnIncrement = document.querySelectorAll('.plus ');
         let BtnDicriment = document.querySelectorAll('.minus');
         let remove = document.querySelectorAll('.remove');
-        console.log(BtnDicriment);
 
         BtnIncrement.forEach((e) => {
             e.addEventListener('click', () => {
@@ -552,7 +560,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(count);
                 if (count > 1) {
                     count = --e.previousElementSibling.textContent;
-                    console.log(count);
                     localStorage.setItem('Quanty' + id, count);
                     if (count == 1) localStorage.removeItem('Quanty' + id);
                 }
@@ -578,21 +585,21 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    // При загрузке страницы раздает всем кол-во из LS
     let loaded = () => {
         favorites.forEach((e) => {
             console.log(e);
             if (localStorage.getItem('Quanty' + e)) {
                 let vas = document.querySelector(`[data-id='${e}']`);
-                console.log(vas);
                 vas = vas.querySelector('.number').textContent = localStorage.getItem('Quanty' + e);
             }
         })
     }
 
+    // Считает общую цену 
     const Allprice = (array) => {
         const allprice = document.querySelector('.total');
         let suma = 0;
-        console.log(array);
         favorites.forEach((e) => {
             let massiv = search(array, e);
             let Money = parseInt(massiv[0].price);
@@ -606,6 +613,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Посчитать общую сумму товаров
-// Удалить все и удалить
-// Сделать возможность поподать из favorites в description
+
