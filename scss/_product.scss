@@ -58,7 +58,22 @@
 }
 .product{
     position: relative;
+    &:nth-child(n + 7) {
+        display: none;
+    }
+    &.is-visible{
+        display: block;
+    }
 }
+
+.btn_center {
+    display: flex;
+    justify-content: center;
+    .btn_show {
+        width: 200px;
+    }
+}
+
 
 .product_title {
     margin-top: 24px;
@@ -171,6 +186,8 @@
         max-width: unset;
     }
 }
+
+
 
 .banner{
     background-image: url(/img/sportik.jpg);

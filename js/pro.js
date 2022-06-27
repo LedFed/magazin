@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Бургер
     document.querySelector('.menu').addEventListener('change', (e) => {
-		event.preventDefault();
-		document.querySelector('nav').classList.toggle('table');	  
-	});
+        event.preventDefault();
+        document.querySelector('nav').classList.toggle('table');
+    });
 
     // Аккардион описание и.т.д 
     const accoridon = () => {
@@ -87,21 +87,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Считаем количество товаров в качестве аргумента принимает favorites
     const nofy = (array) => {
+        let nofy = document.querySelector('.notify');
         if (array.length) {
-            let nofy = document.querySelector('.notify');
             nofy.classList.add('active');
             nofy.textContent = array.length;
+        } else {
+            nofy.classList.remove('active');
+            nofy.textContent = '';
         }
     }
 
     async function getProducts() {
         const response = await fetch('./db/descripton.json');
         const productsArray = await response.json();
-       
+
         switch (htmlPage) {
             case "protein.html": {
                 console.log('это протеин');
                 completion(productsArray[0]);
+                proverka();
+                break;
+            }
+            case "gainer.html": {
+                console.log('это протеин');
+                completion(productsArray[1]);
+                proverka();
+                break;
+            }
+            case "vitamin.html": {
+                console.log('это протеин');
+                completion(productsArray[2]);
+                proverka();
+                break;
+            }
+            case "creatine.html": {
+                console.log('это протеин');
+                completion(productsArray[3]);
                 proverka();
                 break;
             }
@@ -121,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         arrows: false,
                         dots: true,
                     })
-                 
+
                 });
                 threCart(productsArray);
                 proverka();
@@ -167,6 +188,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 </aricle>
                 `;
             gridContainer.insertAdjacentHTML('beforeend', gridper);
+        })
+        const showMOre = document.querySelector('.btn_show');
+        let items = 6;
+        const productsLenthgItem = document.querySelectorAll('.product').length;
+        console.log(productsLenthgItem);
+        if(items >= productsLenthgItem ){
+            showMOre.style.display = 'none';
+        }
+        showMOre.addEventListener('click', () => {
+            items += 3;
+            const arrayLen = Array.from(document.querySelector('.products_grid_item').children);
+            const visitItems = arrayLen.slice(0, items);
+            visitItems.forEach(el => el.classList.add('is-visible'));
+            if(visitItems.length === productsLenthgItem ){
+                showMOre.style.display = 'none';
+            }
         })
     }
     // функция заполняет главный экран товарами
@@ -570,6 +607,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         remove.forEach((e) => {
             e.addEventListener('click', () => {
+                const here = document.querySelector('.suda');
+                const BtnDis = document.querySelector('.Buy')
                 let id = +e.closest('.productik').getAttribute('data-id');
                 for (let key in favorites) {
                     if (id == Number(favorites[key])) {
@@ -580,6 +619,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         Allprice(array);
                         nofy(favorites);
                     }
+                }
+                if (favorites.length == 0) {
+                    here.textContent = 'Тут пусто';
+                    BtnDis.classList.add('active');
+                    BtnDis.disabled = true;
                 }
             })
         })

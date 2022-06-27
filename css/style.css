@@ -748,6 +748,23 @@ input::placeholder {
   position: relative;
 }
 
+.product:nth-child(n + 7) {
+  display: none;
+}
+
+.product.is-visible {
+  display: block;
+}
+
+.btn_center {
+  display: flex;
+  justify-content: center;
+}
+
+.btn_center .btn_show {
+  width: 200px;
+}
+
 .product_title {
   margin-top: 24px;
   margin-bottom: 8px;

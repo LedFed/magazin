@@ -374,3 +374,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //При нажатие на кнопку корзина открыть модальное окно с оплатой
 //Подправить стили
+
+
+const showMOre = document.querySelector('.btn_show');
+
+let items = 6;
+
+const productsLenthgItem = document.querySelectorAll('.product').length;
+
+showMOre.addEventListener('click', () => {
+  items+=3;
+  const arrayLen = Array.from(document.querySelector('.products_grid_item')).children;
+  const visitItems = arrayLen.slice(0, items);
+
+  visitItems.forEach(el => el.classList.add('is-visible'));
+
+})
