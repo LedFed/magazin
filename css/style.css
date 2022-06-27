@@ -735,7 +735,6 @@ input::placeholder {
 .products_flex .products_flex_item {
   display: flex !important;
   justify-content: center;
-  align-items: center;
   gap: 24px;
 }
 
@@ -891,8 +890,12 @@ input::placeholder {
   max-width: unset;
 }
 
+#suda {
+  text-align: center;
+}
+
 .banner {
-  background-image: url(/img/sportik.jpg);
+  background-image: url(../img/sportik.jpg);
   background-size: cover;
   margin-top: 120px;
   height: 700px;
@@ -1224,7 +1227,7 @@ input::placeholder {
 }
 
 .footer_top .footer_search form::before {
-  content: url(/img/icons/arrow.svg);
+  content: url(../img/icons/arrow.svg);
   position: absolute;
   top: 50%;
   right: 16px;
@@ -1321,7 +1324,7 @@ input::placeholder {
     border-bottom: 1px solid #F2F2F2;
   }
   .footer_top .footer_contents .footer_title::after {
-    content: url(/img/icons/arrow_right.svg);
+    content: url(../img/icons/arrow_right.svg);
     display: block;
     transform: rotate(90deg);
     position: absolute;
@@ -1675,7 +1678,6 @@ input::placeholder {
 
 .suda {
   overflow-anchor: none;
-  text-align: center;
   margin-bottom: 10px;
 }
 
