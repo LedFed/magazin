@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getProducts() {
         const response = await fetch('./db/descripton.json');
         const productsArray = await response.json();
+        console.log(productsArray);
 
         switch (htmlPage) {
             case "protein.html": {
@@ -169,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // функция принимает путь массива и заполняет страницу товарами из JSON для(protein, creatine и.т.д)
     const completion = (array) => {
+        takeSearch(array)
         const gridContainer = document.querySelector('.products_grid_item');
         array.forEach((e) => {
             const gridper = `
@@ -193,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let items = 6;
         const productsLenthgItem = document.querySelectorAll('.product').length;
         console.log(productsLenthgItem);
-        if(items >= productsLenthgItem ){
+        if (items >= productsLenthgItem) {
             showMOre.style.display = 'none';
         }
         showMOre.addEventListener('click', () => {
@@ -201,13 +203,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const arrayLen = Array.from(document.querySelector('.products_grid_item').children);
             const visitItems = arrayLen.slice(0, items);
             visitItems.forEach(el => el.classList.add('is-visible'));
-            if(visitItems.length === productsLenthgItem ){
+            if (visitItems.length === productsLenthgItem) {
                 showMOre.style.display = 'none';
             }
         })
     }
     // функция заполняет главный экран товарами
     const threCart = (array) => {
+        takeSearch(array)
         const productam = document.querySelectorAll('.products_flex_item')
         let d = 0;
         for (let k = 0; k < 3; k++) {
@@ -421,12 +424,24 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
         console.log(dates[0]);
-        productsLinks.forEach((e) => {
-            e.addEventListener('click', () => {
-                let curentP = e.closest('.product');
-                localStorage.setItem('curentId', curentP.getAttribute('data-id'));
+        // productsLinks.forEach((e) => {
+        //     e.addEventListener('click', () => {
+        //         let curentP = e.closest('.product');
+        //         localStorage.setItem('curentId', curentP.getAttribute('data-id'));
+        //     })
+        // })
+        // const currentCLick = (links) =>{
+            productsLinks.forEach((e) => {
+                e.addEventListener('click', () => {
+                    let curentP = e.closest('.product');
+                    localStorage.setItem('curentId', curentP.getAttribute('data-id'));
+                })
             })
-        })
+        // }
+
+        // currentCLick(productsLinks)
+     
+        
         console.log(dates[0].price);
         // Выводим в модальное окно текущию карточку
         const generateModalProduct = (img, title, price, id) => {
@@ -654,7 +669,62 @@ document.addEventListener('DOMContentLoaded', () => {
         allprice.textContent = '€' + suma;
     }
 
+    let searchs = document.querySelector('.header_search');
+
+    let head = document.querySelector('header');
+    let inpit = document.querySelector('#inpit');
+    let variabels = document.querySelector('.wrap_variabels');
+
+    document.querySelector('.menu').addEventListener('change', (e) => {
+        event.preventDefault();
+        document.querySelector('nav').classList.toggle('table');
+    });
+    searchs.addEventListener('click', () => {
+        document.querySelector('.wrap').classList.toggle('active');
+        document.querySelector('.search').classList.toggle('active');
+        document.querySelector('nav').classList.toggle('active');
+        variabels.classList.toggle('active');
+        head.classList.toggle('hidden');
+        inpit.focus();
+
+       
+    });
+
+    function generateSearchItem(title, img, price, id) {
+        return `<a  href="description.html" class="variabels_items" data-id="${id}">
+                    <img src="${img[1]}" alt="${title}">
+                    <div class="variabels_info">
+                        <h4 class="variabels_title">${title}</h4>
+                        <span class="product_price">${'€' + price}</span>
+                    </div>
+                </a>`
+    }
+
+    const takeSearch = (array) => {
+        inpit.addEventListener('keyup', () => {
+            if (String(searchs.value).length >= 1) {
+                variabels.innerHTML = '';
+                array.forEach((e) => {
+                    let mas = e.filter(({ name }) => name.toLowerCase().includes(inpit.value.toLowerCase()));
+                    if (mas.length) {
+                        mas.forEach((e) => {
+                            variabels.insertAdjacentHTML('beforeend', generateSearchItem(e.name, e.img, e.price, e.id));
+                            let SearchItem = document.querySelectorAll('.variabels_items')
+                            console.log(SearchItem);
+                            SearchItem.forEach((e) => {
+                                e.addEventListener('click', () => {     
+                                    localStorage.setItem('curentId', e.getAttribute('data-id'));
+                                })
+                            })
+                        })
+                    }
+                })
+            }
+        })
+    }
 });
+
+
 
 
 
