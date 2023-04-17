@@ -14,11 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $(blockid).slideToggle(500);
     });
 
-    //Бургер
-    document.querySelector('.menu').addEventListener('change', (e) => {
-        event.preventDefault();
-        document.querySelector('nav').classList.toggle('table');
-    });
+  
 
     // Аккардион описание и.т.д 
     const accoridon = () => {
